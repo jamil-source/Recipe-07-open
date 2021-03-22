@@ -1,0 +1,47 @@
+<div class="input-group mb-3">
+    <form class="input-group mb-3" #form="ngForm" (ngSubmit) ="getRecipeBySearch(form)">
+        <input type="text" [(ngModel)] = "search" name = "search" class="form-control" placeholder="Search recipe">
+        <button class="btn btn-outline-secondary" type="submit" id="search">Button</button>
+
+        <div class="mealType">
+          <input ngModel class="flex-item" type="checkbox" name="&mealType=breakfast">Breakfast
+          <input ngModel class="flex-item" type="checkbox" name="&mealType=lunch">Lunch
+          <input ngModel class="flex-item" type="checkbox" name="&mealType=dinner">Dinner
+          <input ngModel class="flex-item" type="checkbox" name="&mealType=snack">Snack
+          <input ngModel class="flex-item" type="checkbox" name="&mealType=teatime">Teatime
+        </div>
+        <span>|||</span>
+        <div class="mealType">
+          <input ngModel class="flex-item" type="checkbox" name="&health=alcohol-free">Alcohol-free
+          <input ngModel class="flex-item" type="checkbox" name="&health=dairy-free">Dairy
+          <input ngModel class="flex-item" type="checkbox" name="&health=egg-free">Egg-free
+          <input ngModel class="flex-item" type="checkbox" name="&health=gluten-free">Gluten-free
+          <input ngModel class="flex-item" type="checkbox" name="&health=vegan">Vegan
+          <input ngModel class="flex-item" type="checkbox" name="&health=vegetarian">Vegetarian
+          <input ngModel class="flex-item" type="checkbox" name="&health=pork-free">Pork-free
+
+        </div>
+    </form>
+</div>
+
+
+
+<div class="row">
+    <div class="col-sm-6" *ngFor="let recipe of recipes.hits">
+      <!-- <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"> </h5>
+          <img src="test.jpg" alt="">
+          <a class="btn btn-sm"  routerLink="">Get recepie</a>
+        </div>
+      </div> -->
+      <div class="card" style="width: 18rem;">
+        <img src="{{recipe.recipe.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{recipe.recipe.label}}</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a (click) ="onSelect(recipe.recipe.uri)" class="btn btn-primary">Show Recipe</a>
+        </div>
+      </div>
+    </div>
+</div>

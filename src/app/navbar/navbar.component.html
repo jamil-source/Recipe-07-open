@@ -1,0 +1,35 @@
+<!-- <mat-toolbar color ="primary">
+        <span><mat-icon>restaurant_menu</mat-icon>My Recipes</span>
+
+        <div class="space"></div>
+            <a routerLink="/" mat-button>Home</a>
+            <a routerLink="/" mat-button>My list</a>
+            <a routerLink="/" mat-button>Joke</a>
+        
+    
+
+</mat-toolbar> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Recipes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click) ="onNavigate()">My Recipes</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            <button class="btn">Add recipe</button>
+        </ul>
+      </div>
+    </div>
+</nav>

@@ -1,0 +1,21 @@
+<div class="aboutus-section" *ngIf ="recipeDetails[0]">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="aboutus">
+                    <h2 class="aboutus-title">{{ recipeDetails[0].label }}</h2>
+                    <p class="aboutus-text">Source: {{ recipeDetails[0].source }} </p>
+                    <p class="aboutus-text">{{ recipeDetails[0].ingredientLines}}</p>
+                    <a *ngIf="!inList" class="aboutus-more" (click) ="addToList()">Add to list</a>
+                    <button class="aboutus-more" disabled *ngIf="inList">Added to list</button>
+                    <a class="aboutus-more" routerLink ="/">Get more recipies</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="aboutus-banner">
+                    <img src="{{recipeDetails[0].image}}" class = "rounded" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
