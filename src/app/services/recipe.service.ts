@@ -14,7 +14,7 @@ export class RecipeService {
   constructor(private http:HttpClient) { }
 
   getRecipe():Observable<Recipe>{
-    return this.http.get<Recipe>(`${this.recipesUrl}`);
+    return this.http.get<Recipe>(`${this.recipesUrl}r`);
   }
 
   searchRequest(search, types){

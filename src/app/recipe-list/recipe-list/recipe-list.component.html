@@ -1,4 +1,4 @@
-<div class="input-group mb-3">
+<!-- <div class="input-group mb-3">
     <form class="input-group mb-3" #form="ngForm" (ngSubmit) ="getRecipeBySearch(form)">
         <input type="text" [(ngModel)] = "search" name = "search" class="form-control" placeholder="Search recipe">
         <button class="btn btn-outline-secondary" type="submit" id="search">Button</button>
@@ -22,26 +22,61 @@
 
         </div>
     </form>
-</div>
+</div> -->
+<!-- Default checkbox -->
+
+<section>
+	<div class="form-container">
+		<h1>Recipes</h1>
+		<form #form="ngForm" (ngSubmit) ="getRecipeBySearch(form)">
+		<div class="control">
+		<label for="name">Recipe</label>
+		<input type="text" [(ngModel)] = "search" name = "search" id = "name" class="form-control" placeholder="Search recipe">
+		</div>
+		
+		<div class="mealType">
+			<h2>mealtype</h2>
+			<span>Breakfast<input ngModel class="flex-item" type="checkbox" name="&mealType=breakfast"></span>
+			<span>Lunch<input ngModel class="flex-item" type="checkbox" name="&mealType=lunch"></span>
+			<span>Dinner<input ngModel class="flex-item" type="checkbox" name="&mealType=dinner"></span>
+			<span>Snack<input ngModel class="flex-item" type="checkbox" name="&mealType=snack"></span>
+			<span>Teatime<input ngModel class="flex-item" type="checkbox" name="&mealType=teatime"></span>
+			<hr>
+		</div>
+
+		<div class="healthLabel">
+			<h2>Health label</h2>
+			<span>Alcohol-free<input ngModel class="flex-item" type="checkbox" name="&health=alcohol-free"></span>
+			<span>Dairy<input ngModel class="flex-item" type="checkbox" name="&health=dairy-free"></span>
+			<span>Egg-free<input ngModel class="flex-item" type="checkbox" name="&health=egg-free"></span>
+			<span>Gluten-free<input ngModel class="flex-item" type="checkbox" name="&health=gluten-free"></span>
+			<span>Vegan<input ngModel class="flex-item" type="checkbox" name="&health=vegan"></span>
+			<span>Vegetarian<input ngModel class="flex-item" type="checkbox" name="&health=vegetarian"></span>
+			<span>Pork-free<input ngModel class="flex-item" type="checkbox" name="&health=pork-free"></span>
+			<hr>
+		</div>
+
+		<div class="control">
+		<input type="submit" class="btn" value="Search">
+		</div>
+	</form>
+	</div>
+</section>
+
 
 
 
 <div class="row">
     <div class="col-sm-6" *ngFor="let recipe of recipes.hits">
-      <!-- <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"> </h5>
-          <img src="test.jpg" alt="">
-          <a class="btn btn-sm"  routerLink="">Get recepie</a>
-        </div>
-      </div> -->
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 30rem;">
         <img src="{{recipe.recipe.image}}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{recipe.recipe.label}}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h2 class="card-title">{{recipe.recipe.label}}</h2>
+          <p class="card-text">Kcal: {{recipe.recipe.calories}}</p>
           <a (click) ="onSelect(recipe.recipe.uri)" class="btn btn-primary">Show Recipe</a>
         </div>
       </div>
     </div>
-</div>
+</div> 
+
+
