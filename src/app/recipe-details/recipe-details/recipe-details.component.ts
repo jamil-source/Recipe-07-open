@@ -10,7 +10,6 @@ import { RecipeService } from 'src/app/services/recipe.service';
   styleUrls: ['./recipe-details.component.css']
 })
 export class RecipeDetailsComponent implements OnInit {
-  // @Input() recipes:any;
 
   inList: boolean;
   recipeDetails:any = {};
