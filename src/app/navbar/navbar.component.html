@@ -1,30 +1,26 @@
-<!-- <mat-toolbar color ="primary">
-        <span><mat-icon>restaurant_menu</mat-icon>My Recipes</span>
-
-        <div class="space"></div>
-            <a routerLink="/" mat-button>Home</a>
-            <a routerLink="/" mat-button>My list</a>
-            <a routerLink="/" mat-button>Joke</a>
-        
-    
-
-</mat-toolbar> -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">Recipes</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </button>
-      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" (click) ="onNavigate()">My Recipes</a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
+<nav id="nav" class="navbar navbar-expand-lg navbar-light border-bottom shadow-sm">
+  <a class="navbar-brand" routerLink="/">Recipes</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" style="display: flex;">
+        <a class="nav-link" routerLink="/profile" *ngIf="isSignedIn"><i class="fa fa-user" aria-hidden="true"></i></a>
+        <a class="nav-link" (click) ="onNavigate()" *ngIf="isSignedIn"><i class="fa fa-book" aria-hidden="true"></i></a>
+      </li>
+    <!--<li class="nav-item">
+        <a class="nav-link" (click) ="onNavigate()" *ngIf="isSignedIn"><i class="fa fa-book" aria-hidden="true"></i></a>
+      </li>-->  
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!isSignedIn" routerLink="/login">Log in</a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" *ngIf="!isSignedIn" routerLink="/register">Register</a>
+   </li>
+   <li class="nav-item">
+    <button class="btn btn-outline-primary custNavBtn" (click)="signOut()" *ngIf="isSignedIn">Log out</button> 
+  </li>
+    </ul>
+  </div>
 </nav>

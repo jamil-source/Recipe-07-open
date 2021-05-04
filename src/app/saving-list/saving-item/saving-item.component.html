@@ -1,5 +1,14 @@
 <div class="cart-item">
-    <span>{{recipeListItem[0].label}} </span>
+    <span style="font-weight: 800;">ID: {{recipeListItem.id}} </span>
+    <br>
+    <span>{{recipeListItem.name}} </span>
+    <br>
+    <span>{{data[0]?.calories}} </span>
+    <br>
+
     <!-- <span>| {{recipeListItem?.strArea}}</span> -->
     <button (click) = "onDeleteRecipe(recipeListItem)">X</button>
+    <button routerLink ="{{ recipeListItem.id }}">Edit</button>
+
+    
 </div>
