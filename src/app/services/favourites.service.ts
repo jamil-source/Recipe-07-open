@@ -1,25 +1,34 @@
 import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavouritesService {
   list= [];
-  constructor(private http: HttpClient) { }
+  recipeList;
+  constructor(private http: HttpClient, public authService: AuthService) {
+    // this.getList().subscribe((data:any) =>{
+    //   this.recipeList = data;
+    // })
+  }
   
 
-  // on init eller när du vill hämta listan
+
+  
+  //READ
   getList(){
     console.log(this.list)
     return this.http.get('http://127.0.0.1:80/api/auth/mylist');
   }
 
+  //READ
   getRecipe(id){
     return this.http.get(`http://127.0.0.1:80/api/auth/mylist/${id}`);
   }
 
-  // om du vill spara eller något. kör denna.
+  // CREATE
   setList(list){
     //this.list = list;
     console.log(list[0]);
@@ -29,8 +38,16 @@ export class FavouritesService {
     let formData = {
       recipeList_id: list[0].uri,
       name: list[0].label,
+      description: JSON.stringify(list[0].ingredientLines),
       data: JSON.stringify(list)
     };
+
+    // const result = this.recipeList.search(({ recipeList_id }) => recipeList_id === list[0].uri);
+    // if (result) {
+    //   alert('ALREADY IN YOUR LIST!')
+    // } else {
+    //   alert('Added to your list')
+    // }
   
 
 
@@ -42,31 +59,18 @@ export class FavouritesService {
     return this.list.indexOf(item) !== -1;
   }
 
-  // om du vill lägga till i listan
-  pushIntoList(item){ 
-    this.list.push(item[0].label);
-    this.setList(item).subscribe({
-      next: data => {
-          console.log(data)
-      },
-      error: error => {
-          console.error('There was an error!', error);
-      }
-    })
-  }
-
+  // UPDATE
   updateRecipeItem(id, data){
     return this.http.put(`http://127.0.0.1:80/api/auth/mylist/${id}`, data);
   }
 
 
 
-  // om du vill ta bort
+  // DELETE
   removeFromList(item){
     console.log('before removal')
     console.log(this.list)
     console.log(item)
-    // item.splice(this.list.indexOf(this.list.find(i => i.uri === item.uri)), 1)
     console.log('after removal');
     return this.http.delete(`http://127.0.0.1:80/api/auth/mylist/${item.id}`);
   }

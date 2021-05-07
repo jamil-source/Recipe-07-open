@@ -20,7 +20,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { SavingItemEditComponent } from './saving-list/saving-item-edit/saving-item-edit.component';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar'
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -44,14 +45,21 @@ import { SavingItemEditComponent } from './saving-list/saving-item-edit/saving-i
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    },
+
   ],
   bootstrap: [AppComponent]
 })

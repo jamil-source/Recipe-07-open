@@ -30,8 +30,7 @@
 		<h1>Recipes</h1>
 		<form #form="ngForm" (ngSubmit) ="getRecipeBySearch(form)">
 		<div class="control">
-		<label for="name">Recipe</label>
-		<input type="text" [(ngModel)] = "search" name = "search" id = "name" class="form-control" placeholder="Search recipe">
+		<input type="text" [(ngModel)] = "search" name = "search" id = "name" class="form-control" placeholder="Search recipe...">
 		</div>
 		
 		<div class="mealType">

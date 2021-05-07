@@ -12,6 +12,7 @@ export class SavingItemComponent implements OnInit {
   // @Input() recipe:any
   @Output() deleteRecipe: EventEmitter<any> = new EventEmitter();
   data:any;
+  description:any;
 
 
   constructor() { }
@@ -19,6 +20,9 @@ export class SavingItemComponent implements OnInit {
   ngOnInit(): void {
     this.data = JSON.parse(this.recipeListItem.data)
     console.log(this.data)
+    this.description = this.recipeListItem.description.replace("[", "").replace("]", "").replace(/("|')/g, "");
+
+
   }
 
   onDeleteRecipe(recipe:Recipe){

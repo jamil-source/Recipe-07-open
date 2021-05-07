@@ -1,3 +1,6 @@
+<div class="loader-container" *ngIf = "loaderService.isLoading | async">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <nav id="nav" class="navbar navbar-expand-lg navbar-light border-bottom shadow-sm">
   <a class="navbar-brand" routerLink="/">Recipes</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,13 +17,16 @@
       </li>-->  
       <li class="nav-item">
         <a class="nav-link" *ngIf="!isSignedIn" routerLink="/login">Log in</a>
-     </li>
-     <li class="nav-item">
-      <a class="nav-link" *ngIf="!isSignedIn" routerLink="/register">Register</a>
-   </li>
-   <li class="nav-item">
-    <button class="btn btn-outline-primary custNavBtn" (click)="signOut()" *ngIf="isSignedIn">Log out</button> 
-  </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!isSignedIn" routerLink="/register">Register</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-outline-primary custNavBtn" (click)="signOut()" *ngIf="isSignedIn">Log out</button> 
+      </li>
     </ul>
+    <br>
   </div>
 </nav>
+
+

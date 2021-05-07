@@ -16,6 +16,7 @@ export class RecipeDetailsComponent implements OnInit {
   inList: boolean;
   recipeDetails:any = {};
   isSignedIn: boolean;
+  error: boolean;
 
   constructor(
     private favouritesService: FavouritesService,
@@ -40,20 +41,23 @@ export class RecipeDetailsComponent implements OnInit {
   showRecipeDetails(id){
     this.recipeService.getRecipeDetails(id).subscribe(recipes => {
       console.log(this.recipeDetails = recipes);//1
-      this.inList = this.favouritesService.hasInList(this.recipeDetails)
+      // this.inList = this.favouritesService.hasInList(this.recipeDetails)
     });
     
   }
 
   addToList(){
-    console.log(this)
-    if (!this.inList){
-      console.log(this.recipeDetails)
-      this.favouritesService.pushIntoList(this.recipeDetails)//is one recipe
-      this.inList = !this.inList;
-    } else {
-      alert('already in list!')
-    }
+    console.log(this.recipeDetails)
+    this.favouritesService.setList(this.recipeDetails).subscribe({
+      next: data => {
+          console.log(data)
+          this.inList = !this.inList;
+      },
+      error: error => {
+          console.log('There was an error!', error);
+          this.error = !this.error
+      }
+    })//is one recipe
 
   }
 

@@ -12,13 +12,16 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 export class SavingItemEditComponent implements OnInit {
   id:any;
   recipe:any;
+  name: any;
+  data: any;
+  
+  description: any;
   
   editForm: FormGroup;
+  form:any;
+
 
   constructor(private route:ActivatedRoute, private favouritesService: FavouritesService, public fb: FormBuilder, private router: Router) { 
-    this.editForm = this.fb.group({
-      name: [],
-    })
   }
 
   ngOnInit(): void {
@@ -27,12 +30,18 @@ export class SavingItemEditComponent implements OnInit {
   }
 
   getData(){
-    this.favouritesService.getRecipe(this.id).subscribe(data => {
-      console.log(data)
-      this.recipe = data
-      console.log(this.recipe)
-      console.log(this.editForm.value)
+    this.favouritesService.getRecipe(this.id).subscribe(res => {
+      console.log(res)
+      this.recipe = res
+      this.name = this.recipe.name
+      this.data = JSON.parse(this.recipe.data)
 
+      this.description = this.recipe.description.replace("[", "").replace("]", "").replace(/("|')/g, "");
+    })
+    
+    this.editForm = this.fb.group({
+      name: [this.name],
+      description:[this.description]
     })
   }
 

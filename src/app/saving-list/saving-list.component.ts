@@ -15,6 +15,10 @@ export class SavingListComponent implements OnInit {
   constructor(private favouritesService: FavouritesService) { } //messengerservice is not used?
 
   ngOnInit(): void {
+    this.getData();
+  }
+
+  getData(){
     this.favouritesService.getList().subscribe((data:any) =>{
       console.log(data)
       this.recipeList = data;
@@ -26,6 +30,6 @@ export class SavingListComponent implements OnInit {
      this.favouritesService.removeFromList(recipe).subscribe((data) =>{
        recipe = data;
      });
-     this.ngOnInit();
+     this.getData();
    }
 }

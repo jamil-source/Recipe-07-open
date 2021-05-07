@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from '../services/loader.service';
 import { AuthStateService } from '../shared/auth-state.service';
 import { TokenService } from '../shared/token.service';
 
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
   
   isSignedIn: boolean;
 
-  constructor(private router:Router, private auth: AuthStateService, public token: TokenService) { }
+  constructor(private router:Router, private auth: AuthStateService, public token: TokenService, public loaderService: LoaderService) { }
 
   ngOnInit() {
     this.auth.userAuthState.subscribe(val => {

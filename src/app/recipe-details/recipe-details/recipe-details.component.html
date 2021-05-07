@@ -6,9 +6,11 @@
                     <h2 class="aboutus-title">{{ recipeDetails[0].label }}</h2>
                     <p class="aboutus-text">Source: {{ recipeDetails[0].source }} </p>
                     <p class="aboutus-text">{{ recipeDetails[0].ingredientLines}}</p>
-                    <a *ngIf="!inList && isSignedIn" class="aboutus-more" (click) ="addToList()">Add to list</a>
+                    <button *ngIf="!inList && isSignedIn && !error" class="add-list" (click) ="addToList()">Add to list</button>
+                    <button class="aboutus-more" disabled *ngIf="inList && isSignedIn && !error">Recipe added</button>
+                    <button class="aboutus-more" disabled *ngIf="error">Recipe already in list</button>
                     <a *ngIf="!isSignedIn" class="aboutus-more" routerLink ="/login">Log in to add to list</a>
-                    <button class="aboutus-more" disabled *ngIf="inList">Added to list</button>
+                    
                     <a class="aboutus-more" routerLink ="/">Get more recipies</a>
                 </div>
             </div>

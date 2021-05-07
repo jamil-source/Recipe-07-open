@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 .aboutus-section {
     padding: 90px 0;
@@ -11,9 +13,10 @@
     position: relative;
     text-transform: uppercase;
     color: #000;
+    font-family: 'Poppins';
 }
 .aboutus-title::after {
-    background: #fdb801 none repeat scroll 0 0;
+    background: #e74c3c none repeat scroll 0 0;
     bottom: 0;
     content: "";
     height: 2px;
@@ -26,26 +29,65 @@
     font-size: 15px;
     line-height: 22px;
     margin: 0 0 35px;
+    font-family: 'Poppins';
+}
+
+a{
+    font-family: 'Poppins';
 }
 
 a:hover, a:active {
-    color: #ffb901;
+    color: #e74c3c;
     text-decoration: none;
+    background: #fff;
     outline: 0;
     cursor: pointer;
+    transition: all .3s ease;
 }
 .aboutus-more {
-    border: 1px solid #fdb801;
+    border: 1px solid #e74c3c;
+    background: #e74c3c;
     border-radius: 25px;
-    color: #fdb801;
+    color: #fff;
     display: inline-block;
     font-size: 14px;
-    font-weight: 700;
+    letter-spacing: 0;
+    padding: 7px 20px;
+    margin-left: 2px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.add-list {
+    border: 1px solid #e74c3c;
+    background: #e74c3c;
+    border-radius: 25px;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
     letter-spacing: 0;
     padding: 7px 20px;
     margin-left: 2px;
     text-transform: uppercase;
 }
+
+.add-list:hover, a:active {
+    color: #e74c3c;
+    background: #fff;
+    text-decoration: none;
+    outline: 0;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+button{
+    font-family: 'Poppins';
+}
+
+button:focus {
+    outline:0;
+}
+
 .feature .feature-box .iconset {
     background: #fff none repeat scroll 0 0;
     float: left;
@@ -53,7 +95,7 @@ a:hover, a:active {
     width: 18%;
 }
 .feature .feature-box .iconset::after {
-    background: #fdb801 none repeat scroll 0 0;
+    background: #e74c3c none repeat scroll 0 0;
     content: "";
     height: 150%;
     left: 43%;
