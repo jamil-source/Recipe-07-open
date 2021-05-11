@@ -5,13 +5,14 @@
     font-family: 'Poppins';
     font-size: 15px;
     line-height: 1.5;
+    background: white;
 }
 
 a{
     text-decoration: none;
     color: rgba(34, 54, 69, .7);
     font-weight: 500;
-    cursor: pointer;
+    cursor:pointer;
 }
 
 a:hover{

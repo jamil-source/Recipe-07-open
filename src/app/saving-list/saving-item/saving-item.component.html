@@ -1,4 +1,4 @@
-<div class="cart-item">
+<!-- <div class="cart-item">
     <span style="font-weight: 800;">ID: {{recipeListItem.id}} </span>
     <br>
     <span>{{recipeListItem.name}} </span>
@@ -9,9 +9,22 @@
 
     <br>
 
-    <!-- <span>| {{recipeListItem?.strArea}}</span> -->
+    <span>| {{recipeListItem?.strArea}}</span>
     <button (click) = "onDeleteRecipe(recipeListItem)">X</button>
     <button routerLink ="{{ recipeListItem.id }}">Edit</button>
 
     
-</div>
+</div> -->
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{data[0].image}}" alt="Card image cap">
+    <div class="card-body">
+      <h2 class="card-title">{{recipeListItem.name}}</h2>
+      <h3 class="card-title">Kcal: {{calories}}</h3>
+
+      <p class="card-text">Recipe: {{description}}</p>
+      <button class="btn btn-danger" (click) = "onDeleteRecipe(recipeListItem)">X</button>
+      <button class="btn btn-primary" routerLink ="{{ recipeListItem.id }}">Edit</button>
+
+    </div>
+  </div>

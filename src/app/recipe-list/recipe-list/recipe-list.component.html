@@ -1,30 +1,3 @@
-<!-- <div class="input-group mb-3">
-    <form class="input-group mb-3" #form="ngForm" (ngSubmit) ="getRecipeBySearch(form)">
-        <input type="text" [(ngModel)] = "search" name = "search" class="form-control" placeholder="Search recipe">
-        <button class="btn btn-outline-secondary" type="submit" id="search">Button</button>
-
-        <div class="mealType">
-          <input ngModel class="flex-item" type="checkbox" name="&mealType=breakfast">Breakfast
-          <input ngModel class="flex-item" type="checkbox" name="&mealType=lunch">Lunch
-          <input ngModel class="flex-item" type="checkbox" name="&mealType=dinner">Dinner
-          <input ngModel class="flex-item" type="checkbox" name="&mealType=snack">Snack
-          <input ngModel class="flex-item" type="checkbox" name="&mealType=teatime">Teatime
-        </div>
-        <span>|||</span>
-        <div class="mealType">
-          <input ngModel class="flex-item" type="checkbox" name="&health=alcohol-free">Alcohol-free
-          <input ngModel class="flex-item" type="checkbox" name="&health=dairy-free">Dairy
-          <input ngModel class="flex-item" type="checkbox" name="&health=egg-free">Egg-free
-          <input ngModel class="flex-item" type="checkbox" name="&health=gluten-free">Gluten-free
-          <input ngModel class="flex-item" type="checkbox" name="&health=vegan">Vegan
-          <input ngModel class="flex-item" type="checkbox" name="&health=vegetarian">Vegetarian
-          <input ngModel class="flex-item" type="checkbox" name="&health=pork-free">Pork-free
-
-        </div>
-    </form>
-</div> -->
-<!-- Default checkbox -->
-
 <section>
 	<div class="form-container">
 		<h1>Recipes</h1>
@@ -72,7 +45,7 @@
         <div class="card-body">
           <h2 class="card-title">{{recipe.recipe.label}}</h2>
           <p class="card-text">Kcal: {{recipe.recipe.calories}}</p>
-          <a (click) ="onSelect(recipe.recipe.uri)" class="btn btn-primary">Show Recipe</a>
+          <button (click) ="onSelect(recipe.recipe.uri)" class="btn">Show Recipe</button>
         </div>
       </div>
     </div>

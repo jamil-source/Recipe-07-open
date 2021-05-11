@@ -1,10 +1,10 @@
 <div *ngIf = "recipeList.length === 0" class="alert alert-info">Empty Recipe List</div>
 
-<ul *ngIf="recipeList.length > 0" class="list-group">
-    <li class="list-group-item" *ngFor ="let recipeItem of recipeList">
+<div *ngIf="recipeList.length > 0" class="row">
+    <div class="col-sm-2" *ngFor ="let recipeItem of recipeList">
         <app-saving-item [recipeListItem]="recipeItem"
         (deleteRecipe)="deleteRecipe($event)"
         >
         </app-saving-item>
-    </li>
-</ul>
+    </div>
+</div>

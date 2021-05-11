@@ -13,6 +13,7 @@ export class SavingItemComponent implements OnInit {
   @Output() deleteRecipe: EventEmitter<any> = new EventEmitter();
   data:any;
   description:any;
+  calories:any;
 
 
   constructor() { }
@@ -21,7 +22,7 @@ export class SavingItemComponent implements OnInit {
     this.data = JSON.parse(this.recipeListItem.data)
     console.log(this.data)
     this.description = this.recipeListItem.description.replace("[", "").replace("]", "").replace(/("|')/g, "");
-
+    this.calories = Math.ceil(this.data[0].calories)
 
   }
 

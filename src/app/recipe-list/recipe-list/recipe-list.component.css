@@ -87,3 +87,19 @@ h2{
 .card{
   margin: 0 auto;
 }
+
+.btn{
+  text-transform: uppercase;
+  background: #e74c3c;
+  color: #fff;
+  font-family: 'Poppins';
+  border: 1px solid #e74c3c;
+  transition:opacity .3s ease;
+}
+
+.btn:hover{
+  text-transform: uppercase;
+  background: #fff;
+  color: #e74c3c;
+  transition: all .3s ease;
+}

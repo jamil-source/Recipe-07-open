@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class TokenService {
 
   private issuer = {
-    login: 'http://127.0.0.1/api/auth/login',
-    register: 'http://127.0.0.1/api/auth/register'
+    login: 'http://calm-bastion-61037.herokuapp.com/api/auth/login',
+    register: 'http://calm-bastion-61037.herokuapp.com/api/auth/register'
   }
 
   constructor() { }
@@ -23,11 +23,13 @@ export class TokenService {
 
   // Verify the token
   isValidToken(){
+    debugger;
      const token = this.getToken();
      if(token){
        const payload = this.payload(token);
        console.log(payload.iss)
        if(payload){
+         console.log(this.issuer)
          return Object.values(this.issuer).indexOf(payload.iss) > -1 ? true : false;
        }
      } else {

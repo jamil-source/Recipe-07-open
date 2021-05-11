@@ -20,12 +20,12 @@ export class FavouritesService {
   //READ
   getList(){
     console.log(this.list)
-    return this.http.get('http://127.0.0.1:80/api/auth/mylist');
+    return this.http.get('https://calm-bastion-61037.herokuapp.com/api/auth/mylist');
   }
 
   //READ
   getRecipe(id){
-    return this.http.get(`http://127.0.0.1:80/api/auth/mylist/${id}`);
+    return this.http.get(`https://calm-bastion-61037.herokuapp.com/api/auth/mylist/${id}`);
   }
 
   // CREATE
@@ -52,7 +52,7 @@ export class FavouritesService {
 
 
     console.log(formData);
-    return this.http.post('http://127.0.0.1:80/api/auth/mylist', formData);
+    return this.http.post('https://calm-bastion-61037.herokuapp.com/api/auth/mylist', formData);
   }
 
   hasInList(item){
@@ -61,7 +61,7 @@ export class FavouritesService {
 
   // UPDATE
   updateRecipeItem(id, data){
-    return this.http.put(`http://127.0.0.1:80/api/auth/mylist/${id}`, data);
+    return this.http.put(`https://calm-bastion-61037.herokuapp.com/api/auth/mylist/${id}`, data);
   }
 
 
@@ -72,7 +72,7 @@ export class FavouritesService {
     console.log(this.list)
     console.log(item)
     console.log('after removal');
-    return this.http.delete(`http://127.0.0.1:80/api/auth/mylist/${item.id}`);
+    return this.http.delete(`https://calm-bastion-61037.herokuapp.com/api/auth/mylist/${item.id}`);
   }
 
 
