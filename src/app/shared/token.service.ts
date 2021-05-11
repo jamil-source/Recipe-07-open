@@ -23,7 +23,6 @@ export class TokenService {
 
   // Verify the token
   isValidToken(){
-    debugger;
      const token = this.getToken();
      if(token){
        const payload = this.payload(token);

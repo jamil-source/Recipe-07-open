@@ -5,3 +5,8 @@ body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
+.myList .card{
+    border: 0;
+    box-shadow:  3px 2px 11px 0px grey;
+    margin-top: 20px;
+}

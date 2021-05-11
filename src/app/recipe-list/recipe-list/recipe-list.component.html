@@ -1,54 +1,90 @@
 <section>
 	<div class="form-container">
-		<h1>Recipes</h1>
-		<form #form="ngForm" (ngSubmit) ="getRecipeBySearch(form)">
+	  <h1>Recipes</h1>
+	  <form #form="ngForm" (ngSubmit)="getRecipeBySearch(form)">
 		<div class="control">
-		<input type="text" [(ngModel)] = "search" name = "search" id = "name" class="form-control" placeholder="Search recipe...">
+		  <input type="text" [(ngModel)]="search" name="search" id="name" class="form-control"
+			placeholder="Search recipe...">
 		</div>
-		
+  
 		<div class="mealType">
-			<h2>mealtype</h2>
-			<span>Breakfast<input ngModel class="flex-item" type="checkbox" name="&mealType=breakfast"></span>
-			<span>Lunch<input ngModel class="flex-item" type="checkbox" name="&mealType=lunch"></span>
-			<span>Dinner<input ngModel class="flex-item" type="checkbox" name="&mealType=dinner"></span>
-			<span>Snack<input ngModel class="flex-item" type="checkbox" name="&mealType=snack"></span>
-			<span>Teatime<input ngModel class="flex-item" type="checkbox" name="&mealType=teatime"></span>
-			<hr>
+		  <h2>mealtype</h2>
+  
+			<div class="row">
+			  <div class="col-6">
+				<span class="checkContainer"><span class="label">Breakfast</span><input ngModel class="flex-item"
+					type="checkbox" name="&mealType=breakfast"></span>
+				<span class="checkContainer"><span class="label">Lunch</span><input ngModel class="flex-item"
+					type="checkbox" name="&mealType=lunch"></span>
+				<span class="checkContainer"><span class="label">Snack</span><input ngModel class="flex-item"
+					type="checkbox" name="&mealType=snack"></span>
+			  </div>
+			  <div class="col-6">
+				<span class="checkContainer"><span class="label">Dinner</span><input ngModel class="flex-item"
+					type="checkbox" name="&mealType=dinner"></span>
+				<span class="checkContainer"><span class="label">Teatime</span><input ngModel class="flex-item"
+					type="checkbox" name="&mealType=teatime"></span>
+			  </div>
+		  </div>
+  
+  
+  
+  
+  
+  
+		  <hr>
 		</div>
-
+  
 		<div class="healthLabel">
-			<h2>Health label</h2>
-			<span>Alcohol-free<input ngModel class="flex-item" type="checkbox" name="&health=alcohol-free"></span>
-			<span>Dairy<input ngModel class="flex-item" type="checkbox" name="&health=dairy-free"></span>
-			<span>Egg-free<input ngModel class="flex-item" type="checkbox" name="&health=egg-free"></span>
-			<span>Gluten-free<input ngModel class="flex-item" type="checkbox" name="&health=gluten-free"></span>
-			<span>Vegan<input ngModel class="flex-item" type="checkbox" name="&health=vegan"></span>
-			<span>Vegetarian<input ngModel class="flex-item" type="checkbox" name="&health=vegetarian"></span>
-			<span>Pork-free<input ngModel class="flex-item" type="checkbox" name="&health=pork-free"></span>
-			<hr>
+		  <h2>Health label</h2>
+	  
+			  <div class="row">
+				  <div class="col-6">
+					  <span class="checkContainer"><span class="label">Alcohol-free</span><input ngModel class="flex-item" type="checkbox" name="&health=alcohol-free"></span>
+					  <span class="checkContainer"><span class="label">Dairy</span><input ngModel class="flex-item" type="checkbox" name="&health=dairy-free"></span>
+					  <span class="checkContainer"><span class="label">Egg-free</span><input ngModel class="flex-item" type="checkbox" name="&health=egg-free"></span>
+					  <span class="checkContainer"><span class="label">Gluten-free</span><input ngModel class="flex-item" type="checkbox" name="&health=gluten-free"></span>
+				  </div>
+				  <div class="col-6">
+					  <span class="checkContainer"><span class="label">Vegan</span><input ngModel class="flex-item" type="checkbox" name="&health=vegan"></span>
+					  <span class="checkContainer"><span class="label">Vegetarian</span><input ngModel class="flex-item" type="checkbox" name="&health=vegetarian"></span>
+					  <span class="checkContainer"><span class="label">Pork-free</span><input ngModel class="flex-item" type="checkbox" name="&health=pork-free"></span>
+				  </div>
+			  </div>
+  
+  
+		  
+		  
+		  <hr>
 		</div>
-
+  
 		<div class="control">
-		<input type="submit" class="btn" value="Search">
+		  <input type="submit" class="btn" value="Search">
 		</div>
-	</form>
+	  </form>
 	</div>
-</section>
-
-
-
-
-<div class="row">
-    <div class="col-sm-6" *ngFor="let recipe of recipes.hits">
-      <div class="card" style="width: 30rem;">
-        <img src="{{recipe.recipe.image}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h2 class="card-title">{{recipe.recipe.label}}</h2>
-          <p class="card-text">Kcal: {{recipe.recipe.calories}}</p>
-          <button (click) ="onSelect(recipe.recipe.uri)" class="btn">Show Recipe</button>
-        </div>
-      </div>
-    </div>
-</div> 
-
-
+  </section>
+  
+  
+  
+  <div class="container recipeGroup">
+	<div class="row">
+	  <div class="col-sm-3" *ngFor="let recipe of recipes.hits">
+		<div class="card" style="width: 100%;">
+		  <div class="imgContainer">
+			<img src="{{recipe.recipe.image}}" class="card-img-top" alt="...">
+		  </div>
+  
+		  <div class="card-body">
+			<h2 class="card-title">{{recipe.recipe.label}}</h2>
+			<div class="bodyFooter">
+			  <p class="card-text">Kcal: {{recipe.recipe.calories}}</p>
+			  <button (click)="onSelect(recipe.recipe.uri)" class="btn showRecipe">Show Recipe</button>
+			</div>
+  
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  

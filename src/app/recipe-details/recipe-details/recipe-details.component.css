@@ -57,6 +57,9 @@ a:hover, a:active {
     margin-top: 5px;
     text-transform: uppercase;
 }
+.aboutus{
+    padding: 20px;
+}
 
 .add-list {
     border: 1px solid #e74c3c;
