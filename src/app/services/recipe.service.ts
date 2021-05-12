@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Recipe } from '../model/recipe';
-import { API_KEY } from '../../apis/config';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
-  recipesID = "631cbebe";
-  recipesKey = API_KEY;
+  recipesID = environment.API_ID;
+  recipesKey = environment.API_KEY;
   searchQuery = '';
   recipesUrl:string = `https://api.edamam.com/search?app_id=${this.recipesID}&app_key=${this.recipesKey}&q=`;
   constructor(private http:HttpClient) { }

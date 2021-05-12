@@ -14,6 +14,7 @@ export class SavingItemEditComponent implements OnInit {
   recipe:any;
   name: any;
   data: any;
+  error: boolean;
   
   description: any;
   
@@ -46,9 +47,19 @@ export class SavingItemEditComponent implements OnInit {
   }
 
   updateRecipeItem(){
-    this.favouritesService.updateRecipeItem(this.id, this.editForm.value).subscribe(res => {
+    this.favouritesService.updateRecipeItem(this.id, this.editForm.value).subscribe({
+      next: data => {
+        console.log(data)
+        console.log(this.editForm.value)
+        this.router.navigate(['/mylist']);
+      },
+      error: error => {
+        console.log(error)
+        this.error = error;
+      }
     })
-    this.router.navigate(['/mylist']);
-    console.log(this.editForm.value)
+
   }
+
+  
 }

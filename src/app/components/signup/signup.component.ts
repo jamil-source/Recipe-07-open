@@ -34,7 +34,8 @@ export class SignupComponent implements OnInit {
         console.log(result)
       },
       error => {
-        this.errors = error.error;
+        this.errors = JSON.parse(error.error)
+        console.log(this.errors)
       },
       () => {
         this.registerForm.reset()
